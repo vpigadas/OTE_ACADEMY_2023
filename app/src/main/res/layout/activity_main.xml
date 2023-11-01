@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:orientation="vertical"
+	android:paddingLeft="@dimen/main_layout_left_space"
+	android:paddingTop="@dimen/main_layout_top_space"
+	android:paddingRight="@dimen/main_layout_right_space"
+	android:paddingBottom="@dimen/main_layout_bottom_space"
+	tools:context=".MainActivity">
+
+	<TextView
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:gravity="center"
+		android:text="@string/app_name"
+		android:textSize="@dimen/main_title_size"
+		android:textStyle="bold" />
+
+	<Space
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/main_space_top" />
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:hint="@string/main_username_hint">
+
+		<com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/main_edit_username"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content" />
+
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<Space
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/main_space_middle" />
+
+	<com.google.android.material.textfield.TextInputLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		app:passwordToggleEnabled="true"
+		android:hint="@string/main_password_hint">
+
+		<com.google.android.material.textfield.TextInputEditText
+			android:id="@+id/main_edit_password"
+			android:layout_width="match_parent"
+			android:inputType="textPassword"
+			tools:text="Vassilis"
+			android:layout_height="wrap_content" />
+
+	</com.google.android.material.textfield.TextInputLayout>
+
+	<Space
+		android:layout_width="match_parent"
+		android:layout_height="@dimen/main_space_bottom" />
+
+	<Button
+		android:id="@+id/main_btn_login"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_gravity="right"
+		android:text="@string/main_login_btn" />
+
+</LinearLayout>

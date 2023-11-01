@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="main_username_hint">Εισάγετε το email σας</string>
+	<string name="main_password_hint">Εισάγετε τον κωδικό σας</string>
+	<string name="main_login_btn">Είσοδος</string>
+</resources>

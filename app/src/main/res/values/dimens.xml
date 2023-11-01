@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="main_layout_top_space">16dp</dimen>
+	<dimen name="main_layout_bottom_space">16dp</dimen>
+	<dimen name="main_layout_left_space">16dp</dimen>
+	<dimen name="main_layout_right_space">16dp</dimen>
+	<dimen name="main_title_size">24sp</dimen>
+	<dimen name="main_space_top">16dp</dimen>
+	<dimen name="main_space_middle">8dp</dimen>
+	<dimen name="main_space_bottom">32dp</dimen>
+</resources>
