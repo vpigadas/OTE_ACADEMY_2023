@@ -7,7 +7,8 @@ import gr.ote.academy.databinding.ActivityMain3Binding
 
 class MainActivity : AppCompatActivity() {
 
-    private val viewModel: MainViewModel by viewModels<MainViewModel>()
+    private val viewModel: MainAndroidViewModel by viewModels<MainAndroidViewModel>()
+
     private lateinit var _binding: ActivityMain3Binding
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	xmlns:tools="http://schemas.android.com/tools">
 
+	<uses-permission android:name="android.permission.INTERNET" />
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
 	<application
 		android:allowBackup="true"
 		android:dataExtractionRules="@xml/data_extraction_rules"
@@ -13,8 +16,8 @@
 		android:theme="@style/Theme.OTEAcademy"
 		tools:targetApi="31">
 		<activity
-			android:name=".MainActivity"
-			android:exported="false">
+			android:name=".mvvm.MainActivity"
+			android:exported="true">
 			<meta-data
 				android:name="android.app.lib_name"
 				android:value="" />
@@ -26,7 +29,7 @@
 			</intent-filter>
 		</activity>
 		<activity
-			android:name=".WorkManagerActivity"
+			android:name=".workmanager.WorkManagerActivity"
 			android:exported="false">
 			<meta-data
 				android:name="android.app.lib_name"
@@ -34,7 +37,7 @@
 		</activity>
 
 		<receiver
-			android:name=".MyReceiver"
+			android:name=".ipc.MyReceiver"
 			android:enabled="true"
 			android:exported="true">
 			<intent-filter>
@@ -44,11 +47,11 @@
 		</receiver>
 
 		<service
-			android:name=".MyService"
+			android:name=".services.MyService"
 			android:enabled="true"
 			android:exported="true" />
 		<service
-			android:name=".MyIntentService"
+			android:name=".services.MyIntentService"
 			android:exported="false" />
 
 		<activity
