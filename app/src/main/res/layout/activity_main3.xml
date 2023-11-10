@@ -16,14 +16,17 @@
 		app:layout_constraintTop_toTopOf="parent"
 		tools:text="@string/app_name" />
 
-	<androidx.recyclerview.widget.RecyclerView
-		android:id="@+id/main_recycler"
+	<androidx.fragment.app.FragmentContainerView
+		android:id="@+id/main_fragment_container"
 		android:layout_width="0dp"
 		android:layout_height="0dp"
 		app:layout_constraintBottom_toTopOf="@id/main_btn_refresh"
 		app:layout_constraintEnd_toEndOf="parent"
 		app:layout_constraintStart_toStartOf="parent"
-		app:layout_constraintTop_toBottomOf="@id/main_title" />
+		app:layout_constraintTop_toBottomOf="@id/main_title"
+		tools:layout="@layout/fragment_main_recycler_view">
+
+	</androidx.fragment.app.FragmentContainerView>
 
 	<Button
 		android:id="@+id/main_btn_refresh"

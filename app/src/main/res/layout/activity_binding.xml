@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	xmlns:tools="http://schemas.android.com/tools">
+
+	<data>
+
+		<!--		<variable-->
+		<!--			name="inputUsername"-->
+		<!--			type="String" />-->
+
+		<!--		<variable-->
+		<!--			name="inputPassword"-->
+		<!--			type="String" />-->
+
+		<!--		<variable-->
+		<!--			name="inputAddress"-->
+		<!--			type="String" />-->
+
+<!--		<variable-->
+<!--			name="uiModel"-->
+<!--			type="gr.ote.academy.binding.BindingModel" />-->
+
+		<!--		<variable-->
+		<!--			name="loginCallback"-->
+		<!--			type="android.view.View.OnClickListener" />-->
+
+		<variable
+			name="viewModel"
+			type="gr.ote.academy.binding.BindingViewModel" />
+
+	</data>
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:padding="16dp"
+		tools:context=".binding.BindingActivity">
+
+		<com.google.android.material.textfield.TextInputLayout
+			android:id="@+id/textField_username"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:hint="Username"
+			app:layout_constraintTop_toTopOf="parent">
+
+			<com.google.android.material.textfield.TextInputEditText
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:inputType="textEmailAddress"
+				android:text="@{viewModel.uiModel.username}" />
+
+		</com.google.android.material.textfield.TextInputLayout>
+
+		<com.google.android.material.textfield.TextInputLayout
+			android:id="@+id/textField_password"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:hint="password"
+			app:layout_constraintTop_toBottomOf="@id/textField_username">
+
+			<com.google.android.material.textfield.TextInputEditText
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:digits="0123456789AB"
+				android:inputType="numberPassword"
+				android:text="@{viewModel.uiModel.password}" />
+
+		</com.google.android.material.textfield.TextInputLayout>
+
+		<com.google.android.material.textfield.TextInputLayout
+			android:id="@+id/textField_address"
+			style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:hint="Address"
+			app:layout_constraintTop_toBottomOf="@id/textField_password">
+
+			<com.google.android.material.textfield.TextInputEditText
+				android:layout_width="match_parent"
+				android:layout_height="wrap_content"
+				android:text="@{viewModel.uiModel.address}" />
+
+		</com.google.android.material.textfield.TextInputLayout>
+
+		<Button
+			android:id="@+id/main_btn"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:onClick="@{(view) -> viewModel.login(view)}"
+			android:text="Login"
+			app:layout_constraintBottom_toBottomOf="parent" />
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

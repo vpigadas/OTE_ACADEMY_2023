@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import gr.ote.academy.databinding.FragmentMainRecyclerViewBinding
 
 class MainRecyclerViewFragment : Fragment() {
@@ -24,7 +25,23 @@ class MainRecyclerViewFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.onStart()
 
+        activityViewModel.listItemsStream.observe(viewLifecycleOwner, Observer {
+            viewModel.updateList(it)
+        })
+
+        _binding.mainRecycler.adapter = viewModel.adapter
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.onResume()
+    }
+
+    override fun onPause() {
+        viewModel.onStop()
+        super.onPause()
     }
 
     companion object {

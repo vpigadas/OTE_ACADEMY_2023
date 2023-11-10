@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 class MainAndroidViewModel(application: Application) : AndroidViewModel(application) {
 
-    val adapter: MainListAdapter = MainListAdapter()
+
     val adapter2: MainRecyclerAdapter = MainRecyclerAdapter()
 
     private val _titleStream: MutableLiveData<String> = MutableLiveData("")
@@ -20,9 +20,10 @@ class MainAndroidViewModel(application: Application) : AndroidViewModel(applicat
     private val repository: MainRepository = MainRepository(_titleStream)
     private val networkClient = NetworkClient(application.applicationContext)
 
-    fun onStart() {
-        adapter.submitList(repository.getMockListData())
+    private val _listItemsStream: MutableLiveData<List<String>> by lazy { MutableLiveData(repository.getMockListData()) }
+    val listItemsStream: LiveData<List<String>> = _listItemsStream
 
+    fun onStart() {
         performRefresh()
     }
 
@@ -38,7 +39,7 @@ class MainAndroidViewModel(application: Application) : AndroidViewModel(applicat
         viewModelScope.launch {
             networkClient.movieClient.get(onSuccess = { response ->
                 val titleOnlyList = repository.transform(response)
-                adapter.submitList(titleOnlyList)
+                _listItemsStream.postValue(titleOnlyList)
             }, onError = {
                 Log.d("MAIN", it.toString())
             })

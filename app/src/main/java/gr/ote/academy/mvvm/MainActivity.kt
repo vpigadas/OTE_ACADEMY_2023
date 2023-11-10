@@ -25,7 +25,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        _binding.mainRecycler.adapter = viewModel.adapter
+        supportFragmentManager.beginTransaction()
+            .replace(_binding.mainFragmentContainer.id, MainRecyclerViewFragment.newInstance())
+            .commit()
 
         _binding.mainBtnRefresh.setOnClickListener {
             viewModel.performRefresh()

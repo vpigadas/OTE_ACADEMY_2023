@@ -1,6 +1,5 @@
 package gr.ote.academy
 
-import android.app.Activity
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
@@ -36,14 +35,14 @@ class MainActivity2 : AppCompatActivity() {
 
         username
 
-        binding.main2BtnClose.setOnClickListener {
-
-            val intent = Intent()
-            intent.putExtras(this@MainActivity2.intent)
-
-            setResult(Activity.RESULT_OK, intent)
-            finish()
-        }
+//        binding.main2BtnClose.setOnClickListener {
+//
+//            val intent = Intent()
+//            intent.putExtras(this@MainActivity2.intent)
+//
+//            setResult(Activity.RESULT_OK, intent)
+//            finish()
+//        }
     }
 
     override fun onPostResume() {
@@ -54,7 +53,7 @@ class MainActivity2 : AppCompatActivity() {
         try {
             val frTransaction = supportFragmentManager.beginTransaction()
             //frTransaction.add(frInstance, BlankFragment::class.java.simpleName)
-            frTransaction.replace(binding.main2FragmentContainer.id, frInstance)
+            //frTransaction.replace(binding.main2FragmentContainer.id, frInstance)
             frTransaction.commit()
         } catch (exception: Exception) {
 
