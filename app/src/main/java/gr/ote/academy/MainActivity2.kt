@@ -33,7 +33,6 @@ class MainActivity2 : AppCompatActivity() {
             intent.extras?.getParcelable("cat") as Cat?
         }
 
-        username
 
 //        binding.main2BtnClose.setOnClickListener {
 //
