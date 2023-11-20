@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-	xmlns:tools="http://schemas.android.com/tools"
-	android:layout_width="match_parent"
-	android:layout_height="match_parent"
-	tools:context=".mvi.feature.home.loading.HomeLoadingFragment">
+<layout>
 
-	<androidx.viewpager.widget.ViewPager
-		android:id="@+id/viewPager"
+	<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:tools="http://schemas.android.com/tools"
 		android:layout_width="match_parent"
-		android:layout_height="match_parent" />
+		android:layout_height="match_parent"
+		tools:context=".mvi.feature.home.loading.HomeLoadingFragment">
 
-	<androidx.viewpager2.widget.ViewPager2
-		android:layout_width="match_parent"
-		android:layout_height="match_parent"/>
+		<androidx.viewpager.widget.ViewPager
+			android:id="@+id/viewPager"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent" />
 
-</FrameLayout>
+		<androidx.viewpager2.widget.ViewPager2
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"/>
+
+	</FrameLayout>
+</layout>

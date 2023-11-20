@@ -1,5 +1,7 @@
 package gr.ote.academy.network.json
 
+import androidx.room.Entity
+
 data class MoviesResponseJson(
     val results: List<MovieResponseJson>
 )

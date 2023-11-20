@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import gr.ote.academy.mvi.feature.common.abstract.FragmentViewModel
 import gr.ote.academy.mvi.state.HomeState
-import gr.ote.academy.mvi.state.State
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 

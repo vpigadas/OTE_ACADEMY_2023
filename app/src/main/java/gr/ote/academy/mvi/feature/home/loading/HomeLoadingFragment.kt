@@ -31,7 +31,6 @@ class HomeLoadingFragment : AbstractFragment<MVIViewModel, HomeLoadingViewModel>
     }
 
     companion object {
-        @JvmStatic
         fun newInstance() = HomeLoadingFragment()
     }
 }
