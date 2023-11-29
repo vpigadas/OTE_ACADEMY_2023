@@ -32,7 +32,7 @@ interface ApiService {
         @Part("name") name: RequestBody?,
         @Part("password") password: RequestBody?,
         @Part imageFile: MultipartBody.Part?
-    ): Call<UserResponse?>?
+    ): Call<MovieResponseJson?>?
 
 //    @GET()
 //    fun<T:Any> demo2(@Url url: String): Call<MovieResponseJson>

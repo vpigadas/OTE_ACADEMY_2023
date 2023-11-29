@@ -4,6 +4,7 @@
 
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+	<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
@@ -17,6 +18,7 @@
 
 	<application
 		android:allowBackup="true"
+		android:allowClearUserData="true"
 		android:dataExtractionRules="@xml/data_extraction_rules"
 		android:fullBackupContent="@xml/backup_rules"
 		android:icon="@mipmap/ic_launcher"
@@ -25,6 +27,27 @@
 		android:supportsRtl="true"
 		android:theme="@style/Theme.OTEAcademy"
 		tools:targetApi="31">
+		<activity
+			android:name=".NotificationActivity"
+			android:exported="false">
+			<meta-data
+				android:name="android.app.lib_name"
+				android:value="" />
+		</activity>
+		<activity
+			android:name=".ChromeActivity"
+			android:exported="false">
+			<meta-data
+				android:name="android.app.lib_name"
+				android:value="" />
+		</activity>
+		<activity
+			android:name=".WebActivity"
+			android:exported="false">
+			<meta-data
+				android:name="android.app.lib_name"
+				android:value="" />
+		</activity>
 		<activity
 			android:name=".storage.StorageActivity"
 			android:exported="false">

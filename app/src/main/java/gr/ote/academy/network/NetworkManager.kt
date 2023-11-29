@@ -41,7 +41,7 @@ class NetworkManager {
 //        httpClient.writeTimeout(15,TimeUnit.SECONDS)
 
         httpClient.addInterceptor(HttpLoggingInterceptor().also {
-            it.level = when(BuildConfig.DEBUG){
+            it.level = when (BuildConfig.DEBUG) {
                 true -> HttpLoggingInterceptor.Level.BODY
                 false -> HttpLoggingInterceptor.Level.NONE
             }
@@ -63,7 +63,7 @@ class NetworkManager {
             SecureRandom()
         )
 
-        return httpClient.sslSocketFactory(sslContext.socketFactory).build()
+        return httpClient.sslSocketFactory(sslContext.socketFactory, CustomTrustManager()).build()
     }
 
     fun connectToWebSocket(onReceiveMessage: (String) -> Unit, onFailed: (Exception) -> Unit) {

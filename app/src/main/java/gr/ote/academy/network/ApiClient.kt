@@ -10,12 +10,18 @@ import retrofit2.Response
 internal class ApiClient(private val service: ApiService) {
 
     fun get(onSuccess: (MoviesResponseJson?) -> Unit, onFailed: (Exception) -> Unit) =
-        service.get().enqueue(performCommunication(onSuccess, onFailed))
+        service.get("application/json").enqueue(performCommunication(onSuccess, onFailed))
 
-    fun getMovie(movieId: String, onSuccess: (MovieResponseJson?) -> Unit, onFailed: (Exception) -> Unit) =
-        service.getMovie(movieId).enqueue(performCommunication(onSuccess, onFailed))
+    fun getMovie(
+        movieId: String,
+        onSuccess: (MovieResponseJson?) -> Unit,
+        onFailed: (Exception) -> Unit
+    ) =
+        service.getMovie(
+            headers = mapOf("Content-Type" to "application/json"), movieId, emptyMap()
+        ).enqueue(performCommunication(onSuccess, onFailed))
 
-    private fun<T:Any> performCommunication(
+    private fun <T : Any> performCommunication(
         onSuccess: (T?) -> Unit,
         onFailed: (Exception) -> Unit
     ): Callback<T> =
@@ -35,7 +41,7 @@ internal class ApiClient(private val service: ApiService) {
             }
 
             override fun onFailure(call: Call<T>, t: Throwable) {
-                when(Exception(t)){
+                when (Exception(t)) {
                     is JsonParseException -> onFailed(IllegalArgumentException("json format error"))
                     else -> onFailed.invoke(Exception(t))
                 }
